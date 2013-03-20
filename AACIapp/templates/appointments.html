@@ -1,0 +1,30 @@
+<html>
+<body>
+<table>
+    <tr>
+        <th>{{ patient_first_name }}</th>
+        <th>{{ patient_last_name }}</th>
+        <th>{{ patient_patient_phone }}</th>
+        <th>{{ hospital }}</th>
+        <th>{{ department }}</th>
+        <th>{{ patient_language }}</th>
+        <th>{{ special_instructions }}</th>
+        <th>{{ apointment_datetime }}</th>
+        <th>{{ is_claimed }}</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td>{{ item.patient_first_name }}</td>
+        <td>{{ item.patient_last_name }}</td>
+        <td>{{ item.patient_patient_phone }}</td>
+        <td>{{ item.hospital }}</td>
+        <td>{{ item.department }}</td>
+        <td>{{ item.patient_language }}</td>
+        <td>{{ item.special_instructions }}</td>
+        <td>{{ item.apointment_datetime }}</td>
+        <td>{{ item.is_claimed }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
