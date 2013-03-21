@@ -1,10 +1,13 @@
 from django.conf.urls import patterns, include, url
+from AACI.views import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('',('^CreateAppointments$', create_appointment),
+	('^ProcessAppointment$', process_appointment),
+	('^Appointments$', appointments),
     # Examples:
     # url(r'^$', 'AACI.views.home', name='home'),
     # url(r'^AACI/', include('AACI.foo.urls')),
