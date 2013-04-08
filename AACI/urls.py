@@ -8,6 +8,12 @@ from AACI.views import *
 urlpatterns = patterns('',('^CreateAppointments$', create_appointment),
 	('^ProcessAppointment$', process_appointment),
 	('^Appointments$', appointments),
+	('^RegistrationComplete$', registration_complete),
+	('^Register/Worker$', register_worker),
+	('^Register/Navigator$', register_navigator),
+	('^AppointmentClaimed$', appointment_claimed),
+	('^Login$',login_view),
+	('^Logout$', logout_view),
     # Examples:
     # url(r'^$', 'AACI.views.home', name='home'),
     # url(r'^AACI/', include('AACI.foo.urls')),

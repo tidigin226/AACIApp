@@ -1,16 +1,16 @@
 <html>
 <body>
 <table>
-    <tr>
-        <th>{{ patient_first_name }}</th>
-        <th>{{ patient_last_name }}</th>
-        <th>{{ patient_patient_phone }}</th>
-        <th>{{ hospital }}</th>
-        <th>{{ department }}</th>
-        <th>{{ patient_language }}</th>
-        <th>{{ special_instructions }}</th>
-        <th>{{ apointment_datetime }}</th>
-        <th>{{ is_claimed }}</th>
+    <tr><b>
+        <th>first_name </th>
+        <th>last_name</th>
+        <th>phone</th>
+        <th>hospital</th>
+        <th>department</th>
+        <th>patient_language</th>
+        <th>special_instructions</th>
+        <th>is_claimed</th>
+    </b>
     </tr>
     {% for item in query_results %}
     <tr> 
@@ -23,6 +23,12 @@
         <td>{{ item.special_instructions }}</td>
         <td>{{ item.apointment_datetime }}</td>
         <td>{{ item.is_claimed }}</td>
+        <td>
+        <form action="" method="post" accept-charset="utf-8">{% csrf_token %}</br>
+        <p><input type="hidden" value="{{item.id}}" name ="claimed_appointment" id="claimed_appointment"/>
+        <p><input type="submit" value="Claim Appointment"></p>
+        </form>
+        <td>
     </tr>
     {% endfor %}
 </table>

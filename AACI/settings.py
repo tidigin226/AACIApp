@@ -157,3 +157,4 @@ LOGGING = {
         },
     }
 }
+AUTH_USER_MODEL = 'AACIapp.AACIUser'
