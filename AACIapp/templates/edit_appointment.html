@@ -1,0 +1,17 @@
+<html>
+<body>
+    <h1>Edit Existing Appointment</h1>
+    <form action="" method="post" accept-charset="utf-8">{% csrf_token %}</br>
+        <label for="appointments_patient_first_name">First Name:</label><input type="text" value="{{appointment.patient_first_name}}" name="patient_first_name" id="patient_first_name" /></br>
+        <label for="appointments_patient_last_name">Last Name:</label><input type="text" value="{{appointment.patient_last_name}}" name="patient_last_name" id="patient_last_name" /></br>
+        <label for="appointments_patient_phone">Phone Number:</label><input type="text" value="{{appointment.patient_phone}}" name="patient_phone" id="patient_phone" /></br>
+        <label for="appointments_hospital">Hospital:</label><input type="text" value="{{appointment.hospital}}" name="hospital" id="hospital" /></br>
+        <label for="appointments_department">Department:</label><input type="text" value="{{appointment.department}}" name="department" id="department" /></br>
+        <label for="appointments_patient_language">Patient Language:</label><input type="text" value="{{appointment.patient_language}}" name="patient_language"  id="patient_language"/></br>
+        <label for="appointsments_spcial_instructions">Special Instructions:</label><input type="text" value="{{appointment.special_instructions}}" name="special_instructions" id="special_instructions"/></input></br>
+        <!-- <label for="appointments_appointment_datetime">Date and Time</label><input value="{{appointment_datetime}}" type="datetime" name="appointment_datetime" id="appointment_datetime" /></br> -->
+        <input type="hidden" value="{{appointment.id}}" name ="appointment_id" id="appointment_id"/>
+    <p><input type="submit" name="save_appointment_edits" id="saveappointment_edits" value="Update Appointment"></p>
+    </form>
+</body>
+</html>

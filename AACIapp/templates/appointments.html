@@ -1,0 +1,56 @@
+<html>
+<body>
+<table>
+    <tr><b>
+        <th>first_name </th>
+        <th>last_name</th>
+        <th>phone</th>
+        <th>hospital</th>
+        <th>department</th>
+        <th>patient_language</th>
+        <th>special_instructions</th>
+        <th>is_claimed</th>
+    </b>
+    </tr>
+    {% for item in appointments %}
+        {% if not item.0.is_canceled %}
+            <tr> 
+                <td>{{ item.0.patient_first_name }}</td>
+                <td>{{ item.0.patient_last_name }}</td>
+                <td>{{ item.0.patient_phone }}</td>
+                <td>{{ item.0.hospital }}</td>
+                <td>{{ item.0.department }}</td>
+                <td>{{ item.0.patient_language }}</td>
+                <td>{{ item.0.special_instructions }}</td>
+                <td>{{ item.0.apointment_datetime }}</td>
+                <td>{{ item.0.is_claimed }}</td>
+                {% if user.is_navigator and not item.0.is_claimed %} 
+                    <td>
+                        <form action="" method="post" accept-charset="utf-8">{% csrf_token %}</br>
+                            <p><input type="hidden" value="{{item.0.id}}" name ="claimed_appointment" id="claimed_appointment"/>
+                            <p><input type="submit" value="Claim Appointment"></p>
+                        </form>
+                    <td>
+                {% endif %}
+                {% if user.is_worker %}
+                    {% if item.1 %} 
+                        <td>
+                            <form action="" method="post" accept-charset="utf-8">{% csrf_token %}</br>
+                                <p><input type="hidden" value="{{item.0.id}}" name ="cancel_appointment" id="cancel_appointment"/>
+                                <p><input type="submit" value="Cancel Appointment"></p>
+                            </form>
+                        <td>
+                        <td>
+                            <form action="" method="post" accept-charset="utf-8">{% csrf_token %}</br>
+                                <p><input type="hidden" value="{{item.0.id}}" name ="edit_appointment" id="edit_appointment"/>
+                                <p><input type="submit" value="Edit Appointment"></p>
+                            </form>
+                        <td>    
+                    {% endif %}
+                {% endif %}
+            </tr>
+            {% endif %}
+    {% endfor %}
+</table>
+</body>
+</html>
