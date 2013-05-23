@@ -140,7 +140,7 @@ class AACIUser(AbstractBaseUser):
 class Appointment(models.Model):
     patient_first_name=models.CharField(max_length=30)
     patient_last_name=models.CharField(max_length=30)
-    date_time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    # date_time = models.DateTimeField(auto_now=False, auto_now_add=False)
     patient_phone = models.CharField(max_length=14)
     hospital = models.CharField(max_length=30)
     department = models.CharField(max_length=30)
